@@ -16,6 +16,7 @@
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - Exit"
+     puts "6 - View Entry Number n"
      print "Enter your selection: "
  
      # #3
@@ -44,6 +45,10 @@
          puts "Good-bye!"
          # #8
          exit(0)
+       when 6
+         system "clear"
+         view_entry
+         main_menu
        # #9
        else
          system "clear"
@@ -86,6 +91,21 @@
    end
  
    def read_csv
+   end
+ 
+ # view_entry method for Assignment 6  
+   def view_entry
+     system "clear"
+     print "Enter AddressBloc Entry Number: "
+     entryNum = gets.chomp.to_i
+     puts "entry num - #{entryNum}"
+     address_book.entries.each_with_index do|entry,index|
+        
+        if index == (entryNum-1)
+             puts entry.to_s
+          break
+        end
+     end
    end
    
    def entry_submenu(entry)
