@@ -28,5 +28,24 @@
        end
      end
      
+     def binary_search(name)
+        lower = 0
+        upper = entries.length - 1
+       
+        while lower <= upper
+         mid = (lower+upper) / 2
+         
+           if entries[mid].name == name
+             return entries[mid]
+           elsif entries[mid].name > name
+               upper = mid - 1
+           elsif entries[mid].name < name
+              lower= mid + 1
+           end
+        end
+        
+        return nil
+     end
+     
    
  end
