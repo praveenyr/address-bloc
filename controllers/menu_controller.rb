@@ -15,7 +15,8 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - Demolish entries"
+     puts "6 - Exit"
      print "Enter your selection: "
  
      # #3
@@ -41,6 +42,10 @@
          read_csv
          main_menu
        when 5
+         system "clear"
+         delete_all_entries
+         main_menu
+       when 6
          puts "Good-bye!"
          # #8
          exit(0)
@@ -192,5 +197,17 @@
       puts entry
     
    end  
+   
+   def delete_all_entries
+      unless address_book.entries.empty?
+         entry_count = address_book.entries.count
+         puts "There are #{entry_count} entries to demolish!"
+         address_book.entries.clear
+         puts "#{entry_count} entries have been demolished.You are mean!"
+         puts "Num of entries after deletion - #{address_book.entries.count}.Happy?"
+      else
+         puts "No entries to delete!"
+      end
+   end
    
  end
